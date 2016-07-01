@@ -30,6 +30,12 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem "rspec-rails", "~> 2.14"
+  gem "factory_girl_rails"
+  gem 'faker'
+end
+
 #api gems
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
