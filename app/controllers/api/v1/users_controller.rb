@@ -1,10 +1,12 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_action :authenticate_with_token!, only: [:update, :destroy]
+  load_and_authorize_resource
   respond_to :json
 
   def create
-    user = User.new(user_params) 
+    user = User.new(user_params)
+
     if user.save
       render json: user, status: 201
     else
@@ -35,7 +37,7 @@ class Api::V1::UsersController < ApplicationController
   def destroy
     email = current_user.email
     if current_user.destroy
-      render json: "You've successfully deleted user with email #{email}"
+      render json: "You've successfully deleted your account with email #{email}"
     end
   end
 

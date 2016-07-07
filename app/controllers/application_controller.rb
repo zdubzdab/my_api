@@ -4,4 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   include Authenticable
+
+  rescue_from CanCan::AccessDenied do |exception|
+    render json: "You don't have permission"
+  end
 end

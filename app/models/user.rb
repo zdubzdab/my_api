@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
                     uniqueness: true
   validates :encrypted_password, presence: true
 
+  has_many :articles
+  has_many :comments, through: :articles
+
   def generate_authentication_token!
     begin
       self.auth_token = Devise.friendly_token
