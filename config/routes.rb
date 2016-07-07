@@ -18,6 +18,9 @@ MyApi::Application.routes.draw do
       namespace :admin do
         resources :users, only: [:update, :destroy]
       end
+      resources :articles do
+        resources :comments, only: [:create, :update, :destroy]
+      end
     end
   end
 end
