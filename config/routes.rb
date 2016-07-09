@@ -19,7 +19,7 @@ MyApi::Application.routes.draw do
         resources :users, only: [:update, :destroy]
       end
       resources :articles do
-        resources :comments, only: [:create, :update, :destroy]
+        resources :comments, only: [:create, :update, :destroy, :show]
       end
     end
   end
