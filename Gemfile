@@ -47,4 +47,4 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.10.0'

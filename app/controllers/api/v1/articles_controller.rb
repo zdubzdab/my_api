@@ -27,12 +27,15 @@ class Api::V1::ArticlesController < ApplicationController
 
   def index
     articles = Article.all
-    render json: articles
+
+    articles = params[:article_ids].present? ? Article.find(params[:article_ids]) : Article.all
+    respond_with articles
   end
 
   def show
     article = Article.find(params[:id])
-    render json: "Title: #{article.title}, Text: #{article.text}, Author: #{article.user.email}"
+
+    respond_with article
   end
 
   def destroy

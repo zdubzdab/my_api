@@ -25,13 +25,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def index
-    users = User.all
-    render json: users
+    respond_with User.all
   end
 
   def show
-    user = User.find(params[:id])
-    render json: custom_json_for(user)
+    respond_with User.find(params[:id])
   end
 
   def destroy
@@ -42,13 +40,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
-    def custom_json_for(user)
-      list = { id: " #{user.id}",
-                email: user.email.to_s,
-                created_at: user.created_at.to_s
-              }
-      list.to_json
-    end
 
     def user_params
       params.require(:user).permit(:email, :password, :user_role, :auth_token)
