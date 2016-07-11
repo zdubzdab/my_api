@@ -1,10 +1,17 @@
 == My first API
 
 It is JSON REST API
+
 It is secured by basic auth
+
 It contains Article and Comment models
+
 It contains User mode - with different roles (admin, user, guest)
+
 It limits access to given part of API depend of User role:
- Admin has access to everything
- User can read users articles and comments, create articles and comments, but update and deleted only his records
- Guest can only read users articles and comments
+
+* Admin has access to everything
+
+* User can read users articles and comments, create articles and comments, but update and deleted only his records
+
+* Guest can only read users articles and comments
