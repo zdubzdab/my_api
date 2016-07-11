@@ -1,28 +1,10 @@
-== README
+== My first API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+It is JSON REST API
+It is secured by basic auth
+It contains Article and Comment models
+It contains User mode - with different roles (admin, user, guest)
+It limits access to given part of API depend of User role:
+ Admin has access to everything
+ User can read users articles and comments, create articles and comments, but update and deleted only his records
+ Guest can only read users articles and comments
